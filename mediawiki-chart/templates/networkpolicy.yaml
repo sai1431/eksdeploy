@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "mediawiki.fullname" . }}
+  labels:
+    {{- include "mediawiki.labels" . | nindent 4 }}
+spec:
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          {{- include "mediawiki.networkpolicy" . | nindent 10 }}
+  podSelector:
+    matchLabels:
+      {{- include "mediawiki.networkpolicy" . | nindent 6 }}
