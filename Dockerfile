@@ -8,8 +8,8 @@ RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf \
   && mkdir /run/php-fpm \
   && chgrp -R 0 /var/log/httpd /var/run/httpd /run/php-fpm \
   && chmod -R g=u /var/log/httpd /var/run/httpd /run/php-fpm
-RUN wget https://releases.wikimedia.org/mediawiki/1.31/mediawiki-1.31.12.tar.gz
-RUN tar -zxpvf mediawiki-1.31.12.tar.gz --strip-components=1 -C /var/www/html/
+RUN wget https://releases.wikimedia.org/mediawiki/1.40/mediawiki-1.40.1.tar.gz
+RUN tar -zxpvf mediawiki-1.40.1.tar.gz --strip-components=1 -C /var/www/html/
 RUN chgrp -R 0 /var/www/html/ /var/lib/php/ && chmod -R g=u /var/www/html/ /var/lib/php/
 EXPOSE 8080
 USER 1001
